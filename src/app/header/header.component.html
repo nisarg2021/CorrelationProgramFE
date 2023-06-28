@@ -1,0 +1,34 @@
+<mat-toolbar color="primary" class="navbar">
+  <div>Eurofins - Correlation Program</div>
+  <div class="menu-options">
+    <ng-container *ngIf="role === 'admin'">
+      <span>Project Cycle</span>
+      <span>Tests</span>
+      <span>Labs</span>
+      <span>Calculations</span>
+      <span>Override Score</span>
+      <span>Appendix</span>
+      <span>Users</span>
+    </ng-container>;
+    <ng-container *ngIf="role === 'staff'">
+      <span>Tests</span>
+      <span>Labs</span>
+      <span>Calculations</span>
+      <span>Override Score</span>
+      <span>Appendix</span>
+    </ng-container>
+    <ng-container *ngIf="role === 'lab'">
+      <span>Input Form</span>
+      <span>Tickets</span>
+      <span>Appendix</span>
+    </ng-container>
+    <span class="account-circle" [matMenuTriggerFor]="profileMenu" (mouseenter)="onMouseEnter()" #accountCircle>
+      <mat-icon class="mat-18">account_circle</mat-icon>
+    </span>
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
